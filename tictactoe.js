@@ -18,13 +18,11 @@ function win(i){
     (ttt[0]==i && ttt[4]==i && ttt[8]==i) ||
     (ttt[2]==i && ttt[4]==i && ttt[6]==i);
 }
-
 function findWinner(){
   if(win(1)) return 1;
   else if(win(2)) return 2;
   return 0;
 }
-
 function playerTurn(){
   var i = this.getAttribute('id');
   var t = "X";
@@ -36,17 +34,12 @@ function playerTurn(){
   document.getElementById(i).innerText = t;
   this.removeEventListener("click", playerTurn);
   p1Turn = !p1Turn;
-
   i = parseInt(i);
   ttt[i] = tt;
-
   turn++;
-
   var p = findWinner();
-
   if(p > 0){
-
-    gameCount++;
+   gameCount++;
     turn = 0;
     if(p == 1){
       p1Win++;
@@ -61,7 +54,6 @@ function playerTurn(){
     setTimeout(function(){alert('Player '+p+' won!');}, 200);
     return;
   }
-
   if(turn >= 9){
     setTimeout(function(){alert('Draw!')}, 200);
   }
